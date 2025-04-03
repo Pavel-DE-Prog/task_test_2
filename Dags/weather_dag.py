@@ -9,6 +9,10 @@ from tenacity import retry, stop_after_attempt, wait_exponential
 
 API_KEY = 'fbdb8ee9eca671965cd940ec851d55e0'  # Ваш API ключ для OpenWeatherMap
 
+def create_directory(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+        
 @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
 
 def _fetch_and_process_weather_data(ti):
