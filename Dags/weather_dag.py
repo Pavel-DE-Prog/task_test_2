@@ -7,7 +7,7 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 from tenacity import retry, stop_after_attempt, wait_exponential
 
-API_KEY = 'fbdb8ee9eca671965cd940ec851d55e0'  # Ваш API ключ для OpenWeatherMap
+API_KEY = ''  # Ваш API ключ для OpenWeatherMap, но лучше использовать переменную окружения
 
 def create_directory(directory):
     if not os.path.exists(directory):
